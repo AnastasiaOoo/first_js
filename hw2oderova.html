@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    
+</head>
+<body>
+    <script>
+        var a = 1, b = 1, c, d;
+        c = ++a;           // 2 если ++ стоит до числа, сначала выполняется эта операция, а потом присвоение
+        d = b++;           // 1 соответсвенно, в данном случае сначала выполняется приравнивание
+        c = (2+ ++a);       // 5 сначала а=2, потом проводится операция приращения ++, потом сложение с 2, потом присвоение
+        d = (2+ b++);      // 4 в данном случае приращение происходит до присваивания из за скобок
+        //alert(a);                     3 приращение происходило 2 раза
+       // alert(b);                     3 аналогично 
+
+        var q = 2;
+        var x = 1 + (q *= 2); // 5 q приравнивается к 2 и умножается на 2
+
+        var w = +prompt("a =");
+        function nanOrNot(a){
+            if ( isNaN(a) ){
+                alert("not a number");
+            }
+            return;
+        }
+        nanOrNot(w);
+        var e = +prompt("b = ");
+        nanOrNot(e);
+        if (w >= 0 && e >= 0){
+            var sm = w - e;
+        }else if (w < 0 && e < 0){
+            sm = w * e;
+        }else{
+            sm = w + e;
+        }
+        alert(sm);
+
+
+        var t = prompt("введите число от 0 до 15");
+        nanOrNot(t);
+        switch(t){
+            case '0': alert(0);
+            case '1': alert(1);
+            case '2': alert(2);
+            case '3': alert(3);
+            case '4': alert(4);
+            case '5': alert(5);
+            case '6': alert(6);
+            case '7': alert(7);
+            case '8': alert(8);
+            case '9': alert(9);
+            case '10': alert(10);
+            case '11': alert(11);
+            case '12': alert(12);
+            case '13': alert(13);
+            case '14': alert(14);
+            case '15': alert(15);
+            break;
+        }
+
+        function pl(a,b){
+            a += b;
+            return a;
+        }
+        function min(a,b){
+            a -= b;
+            return a;
+        }
+        function mult(a,b){
+            a *= b;
+            return a;
+        }
+        function division(a,b){
+            a /= b;
+            return a;
+        }
+
+
+        function mathOperation(a, b, operation){
+            switch(operation){
+                case '+': a = pl(a,b);break;
+                case '-': a = min(a,b); break;
+                case '*': a = mult(a,b); break;
+                case '/': a = division(a,b); break;
+            }
+            return a;
+        }
+      alert(mathOperation(7, 5, '+'));
+      alert(mathOperation(7, 5, '-'));
+      alert(mathOperation(7, 5, '*'));
+      alert(mathOperation(7, 5, '/'));
+
+
+      alert(null > 0); //все дело в спецификации js null преобразуется в 0 и они равны
+      alert(null < 0);
+      alert(null >= 0); // если  null < 0 то null >= 0
+      alert(null <= 0);
+      alert(null == 0); // нет специальной спецификации в алгоритме js поэтому возращает 0 по умолчанию
+      alert(null === 0);
+      alert(null != 0);
+      alert(null !== 0);
+
+
+      function power(val, pow){
+        if (pow == 1){
+            return val;
+        }else{
+          return val * power(val, pow - 1);
+        }  
+      }
+      alert(power(2,3));
+
+        
+    </script>
+</body>
+</html>
