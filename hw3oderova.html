@@ -18,7 +18,8 @@
             mas.push(i);
             while (j < i){
                 if (i % j == 0){
-                    mas[i]="";
+                    mas.pop();
+                    break;
                 }
                 j++;
             }
