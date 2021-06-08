@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    
+</head>
+<body>
+    <script>
+        var numb = +prompt("Введите число от 0 до 999");
+       
+        var numbObject = {
+            units: 0,
+            dozen: 0,
+            hundreds: 0
+        }
+        if (numb >= 0 && numb <= 999){
+            numbObject.hundreds = Math.trunc(numb / 100);
+            numbObject.dozen = ((Math.trunc(numb / 10)) % 10);
+            numbObject.units = numb % 10;
+        }else if(isNaN(numb)){
+            console.log("Это не число");
+        }else{
+            console.log("Вы ошиблись в вводимом числе");
+
+        }
+        console.log(numbObject);
+
+
+
+
+        var allProduct = [];
+
+        function newProduct(name, price, dollar, size, quantity){
+            var newObject = {
+                name: name,
+                price: price,
+                dollar: dollar,
+                size: size,
+                quantity: quantity
+            };
+            return newObject;
+        }
+        
+        allProduct[0] = (newProduct('hat', 10, '$', 44, 0));
+        allProduct[1] = (newProduct('sweater', 9, '$', 42, 0));
+        allProduct[2] = (newProduct('shirt', 8, '$', 46, 0));
+        allProduct[3] = (newProduct('tshirt', 7, '$', 48, 0));
+        allProduct[4] = (newProduct('jeans', 15, '$', 50, 0));
+        
+        var productCatalog = [];
+        for (i = 0; i < allProduct.length; i ++){
+            var productArray = [];
+            productArray.push(allProduct[i].name);
+            productArray.push(allProduct[i].price);
+            productArray.push(allProduct[i].dollar);
+            productCatalog.push(productArray);
+            productArray = []; 
+        }
+
+        console.log(allProduct);
+
+        var basket = [];
+        alert("Если хотите добавить товар в корзину, введите необходимое количество" );
+        for(i = 0; i < allProduct.length; i ++){
+            var pl = prompt(productCatalog[i]);
+            if(isNaN(pl)){
+                continue;
+            }else if(pl > 0){
+                basket.push(allProduct[i]);
+                basket[i].quantity = pl;
+            }
+        }
+        function countBasketPrice (array){
+            var price = 0;
+            for(i = 0; i < array.length; i++){
+                price += (array[i].price * array[i].quantity);
+            }
+            return price;
+        }
+        alert(countBasketPrice(basket) + "$");
+
+    </script>
+</body>
+</html>
