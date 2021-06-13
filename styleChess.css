@@ -1,0 +1,20 @@
+table {
+    font-size: 20px;
+    background-color: rgb(216, 221, 166);
+    color: #9511ec;
+ }
+ td {
+    height: 20px;
+    width: 20px;
+    text-align: center;
+ }
+ .white{
+    background-color: rgb(75, 126, 172);
+ }
+ .black{
+    background-color: rgb(44, 44, 75);
+ }
+ .gray{
+     
+     background-color: burlywood;
+ }
