@@ -45,9 +45,9 @@ function createAndModifyDivs(){
         var butt = document.createElement('button');
         
         butt.setAttribute('id','_' + i);
-        butt.innerHTML = butt.id;
+        butt.innerHTML = 'Buy';
         myDivs[i].appendChild(butt);
-        
+        var nDiv =  createDiv();
         butt.onclick = function(){
            
             onrrun = this.id;
@@ -73,19 +73,14 @@ function createAndModifyDivs(){
           console.log(arrayOfBasket);
           var total = 0;
           var productInBasket = [];
-          var nDiv =  createDiv();
+          
         for(var i = 0;i < arrayOfBasket.length;i++){
             total += arrayOfBasket[i].price;
             productInBasket.push(arrayOfBasket[i].name +' '+ arrayOfBasket[i].price + '$');
         }
-        if (total == 0){
-            nDiv.innerHTML = "empty";
-        }else{
-            nDiv.innerHTML = '';
-               
-            nDiv.innerHTML = "Total price is " + total + "$" + '<span> Products in basket: </span>' + productInBasket;
             
-        }
+            nDiv.innerHTML = "Total price is " + total + "$" + '<span> Products in basket: </span>' + productInBasket;
+
         document.body.appendChild(nDiv);
   
             
