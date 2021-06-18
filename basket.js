@@ -1,21 +1,22 @@
 var allProduct = [];
 
-function newProduct(name, price, dollar, size, quantity){
+function newProduct(name, price, dollar, size, quantity, color){
     var newObject = {
         name: name,
         price: price,
         dollar: dollar,
         size: size,
-        quantity: quantity
+        quantity: quantity,
+        color: color
     };
     return newObject;
 }
         
-allProduct[0] = (newProduct('hat', 10, '$', 44, 0));
-allProduct[1] = (newProduct('sweater', 9, '$', 42, 0));
-allProduct[2] = (newProduct('shirt', 8, '$', 46, 0));
-allProduct[3] = (newProduct('tshirt', 7, '$', 48, 0));
-allProduct[4] = (newProduct('jeans', 15, '$', 50, 0));
+allProduct[0] = (newProduct('hat', 10, '$', 44, 0, 'red'));
+allProduct[1] = (newProduct('sweater', 9, '$', 42, 0, 'red'));
+allProduct[2] = (newProduct('shirt', 8, '$', 46, 0, 'red'));
+allProduct[3] = (newProduct('tshirt', 7, '$', 48, 0, 'blue'));
+allProduct[4] = (newProduct('jeans', 15, '$', 50, 0, 'blue'));
 var productDiv;
 
 
@@ -33,15 +34,36 @@ function createAndModifyDivs(){
     var catalog = document.getElementById("catalog");
     
     var myDivs = [];
-    var myButtons = [];
+    
    
     var i = 0;
     for(i; i < allProduct.length; i++){
         myDivs.push(createDiv());
-        ;
+        var redColor = document.getElementById("Red");
+        var blueColor = document.getElementById("Blue");
+        
         catalog.appendChild(myDivs[i]);
         
-        myDivs[i].innerHTML = allProduct[i].name + '<span> price: </span>' + allProduct[i].price + allProduct[i].dollar;
+        if(redColor.checked){
+            var redArray = [];
+            for(i; i< allProduct.length; i++){
+                if(allProduct[i].color == 'red'){
+                    redArray.push(allProduct[i]);
+                }
+            }
+            myDivs[i].innerHTML = redArray[i].name + '<span> price: </span>' + redArray[i].price +'$' +' '+ redArray[i].color;
+        }else if(blueColor.checked){
+            var blueArray = [];
+            for(i; i< allProduct.length; i++){
+                if(allProduct[i].color == 'blue'){
+                    blueArray.push(allProduct[i]);
+                }
+            }
+            myDivs[i].innerHTML = blueArray[i].name + '<span> price: </span>' + blueArray[i].price +'$' +' '+ blueArray[i].color;
+        }else{
+            myDivs[i].innerHTML = allProduct[i].name + '<span> price: </span>' + allProduct[i].price + allProduct[i].dollar +' '+ allProduct[i].color;
+        }
+        
         var butt = document.createElement('button');
         
         butt.setAttribute('id','_' + i);
