@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.menu {
+  background-color: #222222;
+  padding: 15px 50px;
+  text-align: right;
+}
+
+.goods-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 15px 20px;
+}
+
+.goods-item {
+  background-color: #F8F8F8;
+}
+
+.item_name {
+  margin: 15px;
+  font-family: Lato;
+  font-size: 17px;
+  line-height: 16px;
+}
+
+.item_price {
+  margin: 15px;
+  font-family: Lato;
+  font-size: 17px;
+  line-height: 16px;
+  color: #F16D7F;
+}
+/*# sourceMappingURL=e_style.css.map */
